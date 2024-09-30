@@ -1,8 +1,14 @@
-# React + Vite
+# Video Player
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project demonstrates a simple video player using React. You can check out the hosted version of the project here: [Video Player - Vercel](https://video-player-kohl-delta.vercel.app/)
 
-Currently, two official plugins are available:
+## Instructions to Run the Project Locally
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Follow the steps below to set up and run the project on your local machine:
+
+### Step 1: Clone the repository
+
+First, copy the repository link. Then open your terminal and run the following command to clone the repository:
+
+```bash
+git clone <repository-link>
