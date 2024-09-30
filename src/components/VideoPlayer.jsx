@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { FaPlay, FaPause, FaVolumeUp, FaVolumeMute } from "react-icons/fa"; // Use icons as needed
+import { FaPlay, FaPause, FaVolumeUp, FaVolumeMute } from "react-icons/fa"; // Importing icons
 
 const VideoPlayer = ({ src }) => {
     const videoRef = useRef(null);
@@ -89,14 +89,13 @@ const VideoPlayer = ({ src }) => {
 
     const renderCustomControls = () => {
         return (
-            <div className="controls mt-2 flex flex-col">
+            <div className="controls mt-2 flex flex-col md:flex-row md:items-center md:justify-between">
                 {/* Play/Pause Button */}
                 <button
-                    className="play-pause-btn"
+                    className="play-pause-btn flex items-center justify-center p-2 bg-gray-700 rounded-md text-white md:mr-4"
                     onClick={togglePlayPause}
                 >
-                    {isPlaying ? "Pause" : "Play"}
-                    {/* Alternatively, use icons: isPlaying ? <FaPause /> : <FaPlay /> */}
+                    {isPlaying ? <FaPause size={24} /> : <FaPlay size={24} />}
                 </button>
 
                 {/* Progress Bar */}
@@ -106,14 +105,13 @@ const VideoPlayer = ({ src }) => {
                     max="100"
                     value={progress}
                     onChange={handleProgressChange}
-                    className="progress-bar"
+                    className="progress-bar mt-2 w-full md:mt-0 md:flex-grow md:mx-4"
                 />
 
                 {/* Volume Control */}
-                <div className="volume-control mt-2">
-                    <button onClick={toggleMute}>
-                        {isMuted ? "Unmute" : "Mute"}
-                        {/* Alternatively, use icons: isMuted ? <FaVolumeMute /> : <FaVolumeUp /> */}
+                <div className="volume-control mt-2 flex items-center md:mt-0">
+                    <button onClick={toggleMute} className="p-2 bg-gray-700 rounded-md text-white mr-2">
+                        {isMuted ? <FaVolumeMute size={24} /> : <FaVolumeUp size={24} />}
                     </button>
                     <input
                         type="range"
@@ -122,7 +120,7 @@ const VideoPlayer = ({ src }) => {
                         step="0.01"
                         value={volume}
                         onChange={handleVolumeChange}
-                        className="volume-slider"
+                        className="volume-slider ml-2 w-full"
                     />
                 </div>
             </div>
@@ -130,16 +128,16 @@ const VideoPlayer = ({ src }) => {
     };
 
     return (
-        <div className="video-player-container">
-            <h1>Video Player</h1>
+        <div className="video-player-container p-4 bg-gray-900 rounded-md shadow-lg max-w-full md:max-w-3xl mx-auto">
+            <h1 className="text-white text-center text-2xl font-bold mb-4">Video Player</h1>
             <video
                 ref={videoRef}
                 src={src}
                 onClick={togglePlayPause}
                 onPlay={startProgressLoop}
                 onPause={stopProgressLoop}
-                className="video-element w-full"
-                controls={false} // We are implementing custom controls
+                className="video-element w-full h-auto rounded-lg"
+                controls={false} // Custom controls
             />
 
             {/* Custom Controls */}
